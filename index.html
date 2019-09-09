@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Add React in One Minute</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+      .people {
+          display: inline-block;
+          border: 2px solid #ccc;
+          box-shadow: 2px 2px 1px #eee;
+          padding: 10px;
+          margin-right: 10px; 
+      }
+  </style>
+  </head>
+  <body>
+
+      <!-- <div class="people">
+          <h3>Петр Петров</h3>
+          <p> День рождения: <strong>05.02.1990</strong></p>
+      </div>
+      <div class="people">
+          <h3>Сидор Сидоров</h3>
+          <p> День рождения: <strong>09.08.1989</strong></p>
+      </div>
+      <div class="people">
+          <h3>Иван Иванов</h3>
+          <p> День рождения: <strong>23.05.1980</strong></p>
+      </div>-->
+    <div id="root"></div>   
+    <script type="text/babel">
+
+    function Peoples() {
+        return (
+          //здесь обязательно для реакта пишем className
+    <div className="people">
+        <h3>Петров</h3>
+        <p> День рождения: <strong>12.05.2000</strong></p>
+        <small>Info!!!</small>
+    </div>
+        )
+    };
+    function Peoples1(props) {
+        return (
+          //здесь обязательно для реакта пишем className
+    <div className="people">
+        <h3>{props.fio}</h3>
+        // <p> День рождения: <strong>{props.bd}</strong></p>  
+        <small>Info!!!</small>
+    </div>
+        )
+    };//{props.fio}  fio придумали сами
+
+    const App = ( <div> 
+            <Peoples1 fio = "Ivan Ivanov" bd = "31.12.1994" />
+            <Peoples1 fio = "Петр Петров" bd = "05.02.1990" />
+            <Peoples1 fio = "Сидор Сидоров" bd = "09.08.1989" />
+    </div>);
+
+      ReactDOM.render(  //{ это мы так объект передаем!!!!! капец!!!        
+        ///<Peoples1 fio="Ivan" bd="11.10.2010"/>,   //так вызывается функция в реакте  
+
+        App ,
+        
+        document.getElementById('root')
+      );
+    </script>
+  </body>
+</html>
